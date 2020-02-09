@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('partials/header') %>
+
+<script>
+  window.onload= function(){ 
+    document.getElementById("pass2").addEventListener("input", validaSenha);
+    document.getElementById("pass").addEventListener("input", validaSenha);
+    document.getElementById("nickname").addEventListener("blur", verififcaLogin);
+    document.getElementById("enviar").disabled = true;
+  }
+  
+  function validaSenha(){
+    if ( document.getElementById("pass").value!==document.getElementById("pass2").value ){
+          document.getElementById("validaSenha").textContent="As senhas devem coincidir!";
+          document.getElementById("validaSenha").style.color= "red";
+          document.getElementById("enviar").disabled = true;
+          return false;
+    } else {
+          document.getElementById("validaSenha").textContent="Ótimo!";
+          document.getElementById("validaSenha").style.color= "#00a015";
+          document.getElementById("enviar").disabled = false;
+          return true;
+    }
+  }
+
+  function verififcaLogin(){
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.open('GET', '/verifica-login/' + document.getElementById("nickname").value);
+
+      xhttp.send();
+  }
+  if(verififcaLogin){
+    document.getElementById("validaLogin").textContent="Ótimo!";
+  }else{
+    document.getElementById("validaLogin").textContent="Usuário ja cadastrado!";
+  }
+  
+  
+  </script>
+
+
+<body class="extern-body">
+  <div class="d-flex justify-content-center">
+    <div class="container">
+      <h1>
+        Página de Cadastro
+      </h1>
+      <hr>
+      <form action="/new-user" method="POST">
+        <div class="form-group">
+          <% if (erro) { %>
+            <p><%= erro %></p>
+          <% } %>
+          <label for="nickname">Login</label> <span id="validaLogin"></span id>
+          <input  type="text" class="form-control" name="nickname" id="nickname" placeholder="Seu login" required>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Seu Nome">
+          <small id="emailHelp" class="form-text text-muted">Digite seu nome</small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Endereço de Email</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+            placeholder="Seu email">
+          <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu email.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="end">Você é um:</label><br>
+
+          <div class="custom-control custom-radio custom-control-inline ">
+            <input type="radio" class="custom-control-input" id="customRadio" name="isadmin" value=false>
+            <label class="custom-control-label" for="customRadio">Usuário</label>
+          </div>
+
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" class="custom-control-input" id="customRadio2" name="isadmin" value=true>
+            <label class="custom-control-label" for="customRadio2">Professor</label>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="pass">Senha</label>
+          <input type="password" required class="form-control" id="pass" name="pass" placeholder="Digite sua senha" minlength="4">
+        </div>
+
+        <div class="form-group">
+          <label for="pass2">Repita sua senha</label><span  id="validaSenha"> </span> 
+          <input type="password" required class="form-control" id="pass2"placeholder="Digite sua senha novamente">
+        </div>
+
+        <button type="submit" class="btn btn-info btn-lg" id="enviar">Cadastrar</button>
+        <a href="/" class="btn btn-danger btn-lg">Voltar</a>
+
+      </form>
+
+
+
+    </div>
+  </div>
+</body>
+
+</html>

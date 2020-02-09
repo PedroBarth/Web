@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+/* CABEÇALHO ======================== */
+
+.main-header {
+    width: 100%;
+    height: 4rem;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+}
+
+.main-header-nav {
+    height: 100%; /* em relação ao meu pai */
+    width: 100%;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-header-list {
+    list-style: none;
+    display: flex;
+}
+
+.main-header-item {
+    margin: 0 1rem;
+    margin-top: 1rem;
+}
+
+.main-header-item a {
+    font: inherit;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.main-header-item a:hover,
+.main-header-item a:active {
+    color: deepskyblue;
+}
+
+.btn{
+    margin: 0.2rem;
+}
+
+
+/* FIM CABEÇALHO ======================== */
+
+/* JUMBOTRON */
+
+.jumbotron{
+    background-image: linear-gradient(to right, #711c52, #e95152);
+    height: 100%;
+    color: white;
+    border-radius: 0;
+    margin-bottom: 0px;
+    border-bottom: 1px solid black;
+}
+
+img{
+    margin-top: 0;
+}
+
+/* INICIO DO GRID =================== */
+
+main {
+    padding: 1rem;
+    margin: auto;
+}
+
+.grid-container{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.grid {
+    display: flex;
+    flex-flow: column-reverse;
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+
+}
+
+.grid-chart {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.card {
+    margin: 0.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* DROPDOWN */
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 10px 15px 15px 0px rgba(0,0,0,0.8);
+    z-index: 1;
+  }
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;  
+}
+  
+  /* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+  
+  /* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.extern-body{
+    background-color: #dfdfdf;
+}
+
+.error-card{
+    margin: 5px 5px;
+    font-size: 12pt;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+#validaSenha{
+    margin-left: 2rem;
+}
+.extern-body{
+    background-color: #dfdfdf;
+}
+
+.container{
+    width: 50%;
+    border: 2px  solid rgb(255, 255, 255);
+    padding: 1rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(253, 251, 251, 0.966);
+    box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.3);
+}

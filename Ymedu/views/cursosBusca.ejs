@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<%- include('partials/header') %>
+
+
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">Ymedu</a>
+        <form action="/search" method="POST">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="searchWord" id="searchWord" name="searchWord">
+        </form>  
+        <a href="/" class="btn btn-outline-danger" style="float: right;">Voltar</a>
+    </nav>
+
+<div style="margin:30px">
+    
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Exibindo resultados para</h3> 
+      <h4 style="font-style: italic">"<%= palavra %>"</h4>
+    </div>
+    
+    <div class="grid-container">
+        <div class="grid">
+        <% if (cursos.length > 0) { %>
+  
+        <% for (curso of cursos) { %>
+        
+        <div class="card" style="width: 400px">
+              <h4 class="card-title" style="padding: 5px"><%= curso.courseTitle %></h4>
+              <img class="card-img-top" src="<%= curso.imgURL %>" alt="Card image">
+              <div class="card-body">
+                
+                <p class="card-text">Curso profissionalizante de <%= curso.end %>-end com professor <a href="<%= curso.socialURL %>"><%= curso.autor %></a>.</p>
+                <a href="/detalhar/<%= curso.id %>" class="btn btn-outline-primary">Detalhar</a>
+                <a href="/add-carrinho/<%= curso.id %>" class="btn btn-outline-success">Comprar</a>
+
+                <% if (user && user._id == curso.autorID) { %>
+                  <a href="/deleteCurso/<%= curso.id %>" class="btn btn-outline-danger">Deletar</a>
+                <% } %>
+              </div>
+          </div>
+        <br>
+        <% } %>
+  
+        <% } else { %>
+          <h2>Nenhum curso cadastrado</h2>
+        <% } %>
+      </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

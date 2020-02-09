@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<%- include('partials/header') %>
+
+<body>
+
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">Ymedu</a>
+    <form action="/search" method="POST">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="searchWord" id="searchWord" name="searchWord">
+    </form>  
+    <a href="/" class="btn btn-outline-danger" style="float: right;">Voltar</a>
+  </nav>
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Sobre o curso</h2> 
+
+      <h5>Curso de <%= curso.end %>-end</h5>
+
+      <h5>Valor: R$<%= curso.valor %></h5>
+      <br>
+
+      <h2>Sobre o professor</h2>
+      <h5>Nome: <%= curso.autor %></h5>
+      <br>
+
+      <h3>Links</h3>
+      <p>Link para contato com o professor.</p>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= curso.socialURL %>">Rede Social</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-8">
+      <h2><%= curso.courseTitle %></h2><hr>
+      <img src="<%= curso.imgURL %>"  alt="" width="400px">
+
+      <% let desc = curso.courseDescription.split('\n') %>
+
+      <% for (d of desc) { %>
+
+        <p><%= d %></p>
+
+      <% } %>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

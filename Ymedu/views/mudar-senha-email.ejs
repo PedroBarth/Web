@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('partials/header') %>
+
+<body>
+
+    <body class="extern-body">
+  <div class="d-flex justify-content-center">
+
+    <div class="container">
+
+      <h1>
+            Esqueceu sua senha?
+      </h1>
+      
+      <hr>
+
+      <form action="/mandar-email" method="POST">
+
+        <p>Por favor, digite seu email e lhe enviaremos uma nova senha.</p>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input  type="text" class="form-control" name="email" id="email" placeholder="Seu email cadastrado">
+        </div>     
+
+
+        <button type="submit" class="btn btn-info">Enviar</button>
+        <a href="/" class="btn btn-danger">Voltar</a>
+      </form>
+
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>

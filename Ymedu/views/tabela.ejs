@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/header') %>
+
+<body>
+
+<h1 style="justify-content: center; display: flex;">Usuários Ymedu</h1>
+
+<div style="width: 70%; margin: 10px auto 0 auto;">
+    <table class="table table-striped table-bordered">
+
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Editar</th>
+                <th>Tipo de User</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (user of users) { %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><a href="/prof/delete/<%= user.id %>" class="btn btn-danger btn-sm">Deletar</a></td>
+                <% if (user.isadmin)  { %>
+                    <td>Professor</td>
+                <% } else { %>
+                    <td>Aluno</td>
+                <% } %>
+            </tr>
+            <% } %>
+        </tbody>
+
+    </table>
+    <a href="/" class="btn btn-outline-danger">Voltar</a>
+</div>
+</body>
+</html>
