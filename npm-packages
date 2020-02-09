@@ -1,0 +1,1 @@
+npm install nodemon express ejs mongoose express-session nodemailer-sendgrid-transport nodemailer
